@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age API Call</title>
+    <script>
+        function callAPI() {
+            const age = document.getElementById("ageInput").value;
+            const apiUrl = `http://localhost:5072/user/${age}`;
+ 
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', apiUrl, true);
+            xhr.onload = function() {
+                if (this.status == 200) {
+                    const jsonResponse = JSON.parse(this.responseText);
+                    const resultDiv = document.getElementById("result");
+ 
+                    // Display the parsed JSON data
+                    resultDiv.innerHTML = `
+                        Age: ${jsonResponse.age}<br>
+                        Name: ${jsonResponse.name}
+                    `;
+                } else {
+                    console.error("Error calling the API: ", this.statusText);
+                    alert("Error calling the API: " + this.statusText);
+                }
+            };
+            xhr.onerror = function() {
+                console.error("Request error...");
+            };
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+    <label for="ageInput">Enter your age:</label>
+    <input type="text" id="ageInput" name="age" placeholder="Enter age">
+    <button onclick="callAPI()">Submit</button>
+ 
+    <div id="result" style="margin-top: 20px;"></div>
+</body>
+</html>

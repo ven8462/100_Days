@@ -2,6 +2,7 @@
 
 # Write a program that interprets the Body Mass Index (BMI)
 #  based on the user's weight and height
+# random.choice() - chooses a random value from a list.
 
 height = float(input("Enter your height in m: "))
 weight = float(input("Enter your age in kg: "))

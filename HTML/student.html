@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .output-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 15px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Enter Name and Age</h2>
+  <form id="userForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required>
+    <button type="button" id="submitBtn">Submit</button>
+  </form>
+  <div id="output" class="output-card"></div>
+</div>
+
+<script>
+document.getElementById("submitBtn").addEventListener("click", function() {
+  var name = document.getElementById("name").value;
+  var age = parseInt(document.getElementById("age").value);
+
+  var userData = {
+    name: name,
+    age: age
+  };
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "http://localhost:5072/user/student", true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      var response = JSON.parse(xhr.responseText);
+      var outputDiv = document.getElementById("output");
+      outputDiv.innerHTML = `
+        <div class="output-card">
+          <h3>Output</h3>
+          <p><strong>Name:</strong> ${response.name}</p>
+          <p><strong>Age:</strong> ${response.age}</p>
+        </div>
+      `;
+    }
+  };
+
+  xhr.send(JSON.stringify(userData));
+});
+</script>
+</body>
+</html>
+
