@@ -1,0 +1,48 @@
+body{
+    background-color: black;
+}
+
+h1{
+    color: aliceblue;
+    text-shadow: 3px 3px 1px blue;
+    text-overflow: 3px;
+}
+
+#box1{
+    width: 100px;
+    height: 100px;
+    background-color:darkcyan;
+    box-shadow: 3px 3px 5px deeppink;
+
+}
+#box2{
+    width: 100px;
+    height: 100px;
+    background-color:hotpink;
+    box-shadow: 3px 3px 5px rgb(20, 241, 241);
+
+}
+
+#box3{
+    width: 100px;
+    height: 100px;
+    background-color:orangered;
+    box-shadow: 3px 3px 5px aqua;
+
+}
+
+#box4{
+    width: 100px;
+    height: 100px;
+    background-color:deepskyblue;
+    box-shadow: 3px 3px 2px red;
+
+}
+/* margins: are spaces around an element */
+/* float: allows elements to float around an image*/
+.left_box{
+    margin: auto;
+}
+.right_box{
+    margin-right: auto;
+}
