@@ -11,19 +11,19 @@ for i in guess_word:
     print('_', end=' ')
 print()
 
-
-letter = input("Enter a letter: ")
-if letter in guess_word:
-    index = guess_word.index(letter)
-else:
-    pass
-
-for i in range(len(guess_word)):
-    if i == index:
-        print(letter, end=' ')
+while True:
+    letter = input("Enter a letter: ")
+    if letter in guess_word:
+        index = guess_word.index(letter)
     else:
-        print("_", end=' ')
-print()
+        pass
+
+    for i in range(len(guess_word)):
+        if i == index:
+            print(letter, end=' ')
+        else:
+            print("_", end=' ')
+    print()
 
 
 

@@ -38,18 +38,13 @@ while True:
     
 
     shift = shift % 52
-    cipher(message=text, shift_no=shift, cipher_direction=direction)
+    cipher(shift_no=shift,message=text,cipher_direction=direction)
 
 
-    rerun = input("\nHey!, Do you wish to rerun the program😊?: ")
-    if rerun.islower() == "no":
+    rerun = input("\nHey!, Do you wish to rerun the program😊?: ").lower()
+    if rerun == "no":
         print("Thank you for using the Caesar Cipher program by Lavender❤️, Bye Bye😍😍")
-        break
-     #   exit(0)
-    # else:
-    #     cipher(message=text, shift_no=shift, cipher_direction=direction)
-
-
+        exit(0)
 
 
 
