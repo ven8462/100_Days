@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ven</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <nav>
+            <div class="logo">
+                <img src="images/logo.jpg">
+            </div>
+            <div class="nav_links">
+                <ul>
+                    <li><a href="#"> Home </a></li>
+                    <li><a href="#"> About </a></li>
+                    <li><a href="#"> Services </a></li>
+                    <li><a href="#"> Contacts </a></li>
+                </ul>
+
+            </div>
+        </nav>
+        <div class="information">
+            <div class="overlay"></div>
+            <img src="images/coffe.jpg" class="cofee">
+            <div id="circle">
+                <div class="feature one">
+                    <img src="images/drinks.jpg">
+                    <h1>Drinks</h1>
+                    
+                </div>
+                <div class="feature two">
+                    <img src="images/vegetable.jpg">
+                    <h1>Vegetables</h1>
+                    
+                </div>
+                <div class="feature three">
+                    <img src="images/beef.jpg">
+                    <h1>Beef</h1>
+                </div>
+                <div class="feature four">
+                    <img src="images/pasta.jpg">
+                    <h1>Pasta</h1>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="controls">
+            <img src="images/arrow.jpg" id="upbutton">
+            <h3>Features</h3>
+            <img src="images/arrow.jpg" id="dnbutton">
+
+        </div>
+    </div>
+    <script>
+        var circle = document.getElementById("circle")
+        var upbutton = document.getElementById("upbutton")
+        var dnbutton = document.getElementById("dnbutton")
+        
+        var rotateValue = circle.style.transform;
+        var rotateSum;
+
+        upbutton.onclick = function()
+        {
+            rotateSum = rotateValue + "rotate(-90deg)";
+            circle.style.transform = rotateSum;
+            rotateValue = rotateSum;
+        }
+        dnbutton.onclick = function()
+        {
+            rotateSum = rotateValue + "rotate(90deg)";
+            circle.style.transform = rotateSum;
+            rotateValue = rotateSum;
+        }
+    </script>
+</body>
+</html>
