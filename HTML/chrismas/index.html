@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 0;
+      overflow: hidden;
+      background-color: #001f3f;
+      color: #fff;
+    }
+
+    #animationContainer {
+      position: relative;
+      height: 100vh;
+    }
+
+    #yearDisplay {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 4em;
+      animation: fadeIn 2s forwards;
+    }
+
+    .balloon {
+      display: inline-block;
+      position: absolute;
+      right: -20%;
+      bottom: 10%;
+      animation: moveIn 2s ease-out forwards, fadeIn 2s 2s forwards, dropAndFloatUp 5s ease-out 4s forwards;
+      font-size: 4em;
+    }
+
+    #happyNewYear {
+      opacity: 0;
+      animation: fadeIn 4s 9s forwards;
+      font-size: 2em;
+    }
+
+    #number4, #number3 {
+      font-size: 2em;
+      position: absolute;
+      opacity: 0;
+      display: inline-block;
+    }
+
+    @keyframes moveIn {
+      to {
+        right: 50%;
+        transform: translateX(50%);
+      }
+    }
+
+    @keyframes dropAndFloatUp {
+      0% {
+        bottom: 10%;
+      }
+      50% {
+        bottom: 50%;
+        transform: translateY(-10px);
+      }
+      100% {
+        bottom: 10%;
+        transform: translateY(-50vh);
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="animationContainer">
+    <div id="yearDisplay">2023</div>
+
+    <div class="balloon">
+      <span style="font-size: 2em;">&#127880;</span>
+      <div id="number4">4</div>
+      <div id="number3">3</div>
+    </div>
+
+    <div id="happyNewYear">Happy New Year from Ven!❤️</div>
+  </div>
+
+  <audio id="backgroundMusic" autoplay loop>
+    <source src="your-audio-file.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    setTimeout(function() {
+      let balloon = document.querySelector('.balloon');
+      
+      // Replace 3 with 4
+      document.getElementById('yearDisplay').innerHTML = document.getElementById('yearDisplay').innerHTML.replace('3', '4');
+      
+      // Show number 4
+      document.getElementById('number4').style.opacity = '1';
+      
+      // Set timeout to hide number 4 and show number 3 after a brief delay
+      setTimeout(function() {
+        document.getElementById('number4').style.opacity = '0';
+        document.getElementById('number3').style.opacity = '1';
+        
+        // Set timeout to hide number 3 after a brief delay
+        setTimeout(function() {
+          document.getElementById('number3').style.opacity = '0';
+          
+          // Show the "Happy New Year" message
+          document.getElementById('happyNewYear').style.opacity = '1';
+        }, 2000); // 2000 milliseconds (2 seconds) delay
+      }, 2000); // 2000 milliseconds (2 seconds) delay
+    }, 2000); // 2000 milliseconds (2 seconds) delay
+  </script>
+</body>
+</html>
