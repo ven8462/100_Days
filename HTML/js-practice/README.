@@ -1,0 +1,6 @@
+# Learning JS
+
+## JS loading Strategies.
+- When loading JS plainly, the html file starts loading, then when the interpreter meets the Js script it stops the html, loads and executes the Js then continues loading the html.
+- When we use async, the html and js are downloaded at the same time, then when the JS finishes the html is stopped and the JS is executed, (async does not care about the arrangement of the JS files)  then the interpreter continues to parse the html
+- When using defer, the html and js are downloaded at the same time, when the html is ready, the js is executed. (defer follows the order of the js files)
